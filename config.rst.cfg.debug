@@ -1,0 +1,58 @@
+[Data]
+conjunction_file = conjunctions.txt
+eval_scripts = scripts/seg_eval.py
+bert_dir = ../bert-base-uncased-model
+data_dir = experiment/wiki_edu
+train_file = %(data_dir)s/sample.txt
+dev_file = %(data_dir)s/sample.txt
+test_file = %(data_dir)s/sample.txt
+min_occur_count = 0
+min_masked_occur_count = 0
+max_edu_len = 512
+max_edu_num = 64
+min_edu_num = 2
+geo_clip = 10
+geo_p = 0.2
+
+[Save]
+save_dir = rst_eduseg_model
+config_file = %(save_dir)s/config.cfg
+save_model_path = %(save_dir)s/model
+save_vocab_path = %(save_dir)s/vocab
+load_dir = rst_eduseg_model
+load_model_path = %(load_dir)s/model
+load_vocab_path = %(load_dir)s/vocab
+
+[Network]
+lstm_layers = 1
+word_dims = 100
+dropout_emb = 0.33
+lstm_hiddens = 100
+dropout_lstm_input = 0.33
+dropout_lstm_hidden = 0.33
+dropout_mlp = 0
+hidden_size = 100
+output_hidden_states = True
+output_attentions = False
+tune_start_layer = 8
+start_layer = 8
+end_layer = 12
+
+[Optimizer]
+l2_reg = 1e-6
+learning_rate = 2e-3
+decay = .75
+decay_steps = 1000
+beta_1 = .9
+beta_2 = .9
+epsilon = 1e-12
+clip = 5.0
+
+[Run]
+train_iters = 300
+train_batch_size = 2
+test_batch_size = 8
+validate_every = 50
+save_after = 2
+update_every = 1
+
