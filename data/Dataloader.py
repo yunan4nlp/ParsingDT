@@ -46,7 +46,7 @@ def read_eval_corpus(file_path):
     print("Info: ", file_path)
     print("Doc num: ", doc_num)
     print("Sentence num: ", sent_num)
-    return filter_doc_data
+    return filter_doc_data, sent_num
 
 def read_corpus(file_path, min_edu_num, max_edu_num, eval=False):
 
