@@ -1,3 +1,3 @@
 # ParsingDT
 
-We use the biaffine parser to parse the Wikicorpus(conll format).
+We use the biaffine parser to parse the documents(conll format).
